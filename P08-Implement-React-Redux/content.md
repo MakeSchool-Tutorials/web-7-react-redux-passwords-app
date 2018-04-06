@@ -223,22 +223,123 @@ The `mapStateToProps` method receives state from the Store as a prop and
 returns an object containing values to be passed to your container/component 
 as props. 
 
-Create a new component that will display a list of passwords. Create a new 
-file: 'src/password-list.js'.
-
-
-
-
-
 ### mapDispatchToProps
 
-Th `mapDispatchToProps` method maps the action creator methods you defined 
+The `mapDispatchToProps` method maps the action creator methods you defined 
 to props in your container/component. There is a little functional progrmming 
 magic happening through this method. 
 
 ### connect method
 
+The `connect` method connects your component, to state and action creators. 
 
+## Password List 
+
+This a component that will list all of the passwords in the store. 
+
+Create a new component that will display a list of passwords. Create a new 
+file: 'src/password-list.js'.
+
+```JSX
+import React, { Component } from 'react'
+import { connect } from 'react-redux'
+
+class PasswordList extends Component {
+
+  getList() {
+    return this.props.passwords.map((pass, index) => {
+      return (
+        <div key={index}>
+          name:{pass.name} password: {pass.password}
+        </div>)
+    })
+  }
+
+  render() {
+    return (
+      <div>
+        {this.getList()}
+      </div>
+    )
+  }
+}
+
+const mapStateToProps = (state) => {
+  return {
+    passwords: state.passwords
+  }
+}
+
+export default connect(mapStateToProps)(PasswordList)
+```
+
+This is the minimal component to display a list of passwords with thier names. 
+
+The list of passwords is generated from the array of passwords in the redux store. 
+This is passed through `mapStateToProps` to `this.props.passwords` in this component. 
+The last line `export default connect(mapStateToProps)(PasswordList)` makes this 
+possible. 
+
+Notice, the last line is the default export, instead of exporting the class as 
+usual. 
+
+At this point there are no passwords in the list, so nothing is displayed. You
+need to add passwords to the list. 
+
+Modify `src/password.js` Password component. This component was not initially 
+set as a container/component. You need to convert this component into a 
+container. 
+
+Import `connect` from 'react-redux' and `addPassword` from '../actions' at the 
+top of the class. 
+
+```JavaScript
+import { connect } from 'react-redux'
+import { addPassword } from '../actions'
+```
+
+Add `mapStateToProps` and `addDispatchToProps` at the bottom of the module. 
+
+```JavaScript
+const mapStateToProps = (state) => {
+  return {
+
+  }
+}
+
+const mapDispatchToProps = () => {
+  return {
+    addPassword
+  }
+}
+```
+
+Last use `connect` to connect this component to Redux. 
+
+Replace `export default Password` with: 
+
+```JavaScript
+export default connect(mapStateToProps, mapDispatchToProps())(Password)
+```
+
+Last, you want to save a password by calling the action creator: `addPassword`
+with the name and password. 
+
+Add a button that does this to render method: 
+
+```JSX
+<div>
+  <button onClick={(e) => {
+    this.props.addPassword(this.state.name, this.state.password)
+  }}>Save</button>
+</div>
+```
+
+## Testing your work
+
+Clicking the 'Save' button should add a new password to the list. Doing this
+should display the name and password to the PasswordList. 
 
 ## Resources
 
+- 

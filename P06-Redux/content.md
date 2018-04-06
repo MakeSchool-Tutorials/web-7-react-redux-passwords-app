@@ -72,8 +72,6 @@ Basically anything displayed on your Twitter timeline, user profile,
 and all of the information used behind the scenes to control 
 what is displayed is part of application state for Twitter. 
 
-
-
 ## Resources 
 
 - https://redux.js.org

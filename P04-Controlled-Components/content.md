@@ -63,6 +63,9 @@ This pattern works for most form elements.
 
 ## Challenges 
 
+Add another input that stores a name for the password. Remember you'll need to 
+save the name on state. 
+
 Use the input above in the Password component. This should allow you to generate 
 a random password, type in your own choice of password, or modify the random 
 password to make it more memorable. 
