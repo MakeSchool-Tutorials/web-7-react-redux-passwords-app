@@ -27,26 +27,26 @@ An Action Object has a type and a payload. Type is a always a
 string, and payload can be any data the reducer might need to 
 implement the action. 
 
-![04-Actions-Object](./04-Actions-Object.png)
+![04-Actions-Object](./assets/04-Actions-Object.png)
 
 Best practice says that we will use a function to generate Actions. 
 An Action Creator is a function that generates action Objects. 
 
-![05-Action-Creators](./05-Action-Creators.png)
+![05-Action-Creators](./assets/05-Action-Creators.png)
 
 The dispatch calls the reducer with the current state and the Action. 
 Reducers always return new state after making any changes. 
 
-![06-Dispatcher-Reducer](./06-Dispatcher-Reducer.png)
+![06-Dispatcher-Reducer](./assets/06-Dispatcher-Reducer.png)
 
 The store is a JavaScript Object that holds application data. 
 
-![07-Store](./07-Store.png)
+![07-Store](./assets/07-Store.png)
 
 After the store is updated data is passed to views. React Redux 
 passes data to views as props. 
 
-![08-views](./08-views.png)
+![08-views](./assets/08-views.png)
 
 ## Implement React Redux
 

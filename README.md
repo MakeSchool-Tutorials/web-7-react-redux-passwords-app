@@ -4,7 +4,7 @@ This tutorial uses React and Redux to create a password generator and storage ap
 
 This app could be build as either React or React Native. 
 
-![image](preview.png)
+<!-- ![image](preview.png) -->
 
 ## Version 
 

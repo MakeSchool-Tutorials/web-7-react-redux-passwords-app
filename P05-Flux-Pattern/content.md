@@ -29,15 +29,15 @@ Actions must pass through the system before another action can be processed.
 
 One way data flow.
 
-![01-unidirectional-data-flow](./01-unidirectional-data-flow.png)
+![01-unidirectional-data-flow](./assets/01-unidirectional-data-flow.png)
 
 Actions can be sent from views.
 
-![02-actions](./02-actions.png)
+![02-actions](./assets/02-actions.png)
 
 Data flows into views when the store is updated.
 
-![03-views](./03-views.png)
+![03-views](./assets/03-views.png)
 
 ## Resources 
 
