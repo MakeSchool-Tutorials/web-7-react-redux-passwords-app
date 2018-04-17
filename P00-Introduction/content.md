@@ -18,6 +18,8 @@ To follow the tutorial you should have a basic understanding of JavaScript.
 
 The tutorial assumes familiarity with React and JSX. 
 
+You should also know how to use terminal commands.
+
 Some understanding of the ES6 version of JS will also be helpful. 
 
 # Introduction 

@@ -6,22 +6,26 @@ slug: react-redux-controlled-components
 # What is a controlled Component? 
 
 Controlled Component is a name used to describe form elements 
-in React. For elements require a special treatment due to the 
-React handles elements with the virtual DOM. 
+in React. Form elements require a special treatment due to the 
+virtual DOM. 
 
 ## The virtual DOM
 
-The DOM is Document Object Model, it is structure of nodes or elements created from 
-the HTML structure. In practice browsers manipulate the DOM when things change
-and the process is slow. React improves on this by storing a copy of the DOM in 
-JavaScript. 
+The DOM is Document Object Model, it is the structure of nodes or elements 
+created from the an HTML document. 
 
-This virtual DOM is much faster to modify and manage. 
+Traversing and modifying elements in the DOM, like updating the text/html
+content of a tag is a slow operation in the browser. 
 
-Using a virtual DOM also introduces some problems with the traditional methods you 
-might be accustomed to working with. For example if you create a reference to 
-an element in the DOM there is no guarantee that the element will not be removed 
-and replaced when the virtual DOM needs to make an update. 
+React solves this speed issue by creating a virtual DOM that holds the 
+structure of the document in JavaScript. When changes occur in the virtual 
+DOM React only edits the elements in the actual DOM that have changed. 
+This is much faster than accessing elements in the DOM directly. 
+
+Using the virtual DOM introduces some problems. For example if you create a 
+reference to an element in the DOM there is no guarantee that the element 
+will not be removed and replaced when the virtual DOM needs to make an 
+update. 
 
 This problem comes into play with form elements since these need to update their 
 content often. 

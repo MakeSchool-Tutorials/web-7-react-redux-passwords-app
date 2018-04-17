@@ -17,3 +17,5 @@ it for free [here](https://atom.io).
 Node package Manager is a tool for managing file dependancies. Follow the instructions 
 [here](https://www.npmjs.com/package/npm) and install the version for your computer system. 
 
+You'll use NPM to build and run your project and download and manage project dependancies. 
+
