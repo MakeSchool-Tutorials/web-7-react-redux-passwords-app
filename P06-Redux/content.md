@@ -13,54 +13,38 @@ Redux is a library written in JavaScript.
 
 ## What does it do? 
 
-Redux acts a central store for application state/data. You might not need 
-it for many apps. In other apps it will solve problems that appear to be 
-difficult. 
+Redux implements the Flux pattern in your JavaScript Applications. 
 
-Wait what does Redux do again? Redux manages application state. That is Redux 
-manages data that is share across your entire app. Beyond that is also 
-manages changes to that data that make changes to data predictable and 
-consistent. 
+Redux acts as a central store for application state/data.
+
+Redux stores the data your application works with. It also manages
+changes to that data that keep the changes predictable and 
+reliable. 
+
+Redux/Flux is a tool for managing application state. There are 
+two features of this that effect how your applications functions. 
+
+First sharing state across components can become complicated 
+as the structure of components becomes complex. redux makes 
+sharing data between components easier since the store is 
+contained in a single place. 
+
+Second, Redux/Flux makes changes to application state more 
+reliable. All changes to state must be happen through an 
+action, and changes to state must be completed before the 
+next action is applied.
 
 ## Application State
 
-Redux is a tool for managing application state. To understand when 
-and where to use Redux necessitates an understanding of Application
-State. 
-
-Imagine Components as islands. Component state is like villages 
-on islands. They can communicate with other villages on their island
-but, have trouble communicating with people on other islands. 
-
-Imagine Application state as a radio station. It allows you to send 
-messages and share infomation with any village on any island anywhere 
-in the ocean. 
-
-If your islands are self contained and can run their life without 
-connection to the outside world you don't need Redux. If, on the 
-other hand, the villages (components) on islands throughout the ocean
-(your app) need to communicate with other viallages using Redux 
-will make this communication process easier to manage. 
-
-Application state stored in Redux is easily shared across your entire
-application. The component structure becomes irrelevant. 
-
-Without Redux you will find that sharing data requires that state 
-is owned and managed by a ancestor components. It is very difficult 
-to pass data to components that are not descendants of component 
-that owns the data. 
-
-How does application state differ from Component State? Components
-have their own state. Component state is stored in each component. 
-Components can share state with child components. Sharing state 
-with siblings or ancestors is more difficult.
+Application state is any data that your application stores and manages. 
+This could be names and numbers in an andress book, any objects that 
+are displayed and managed by the app. Data loaded from a web API. 
 
 ### Some Examples 
 
-So what's application state? Application state is the data your app 
-stores, displays, and manages. Some examples are in order: 
+The Twitter web site uses React and Redux. 
 
-- Twitter uses Redux. The state used by Twitter holds 
+- Twitter uses Redux. The state used by Twitter holds
   - Tweets
   - settings
   - notifications
@@ -76,3 +60,4 @@ what is displayed is part of application state for Twitter.
 
 - https://redux.js.org
 - https://egghead.io/courses/getting-started-with-redux
+- https://medium.com/@cabot_solutions/flux-the-react-js-application-architecture-a-comprehensive-study-fd2585d06483

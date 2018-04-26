@@ -38,4 +38,8 @@ a store of these passwords locally on your device.
   - Class objects and OOP
 - Redux and React Redux
   - Managing Application state with the Flux pattern
+  
+  ## Resources
+  
+  - https://medium.com/dailyjs/the-deepest-reason-why-modern-javascript-frameworks-exist-933b86ebc445
 
