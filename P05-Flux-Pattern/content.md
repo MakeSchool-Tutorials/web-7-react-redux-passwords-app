@@ -102,9 +102,9 @@ console.log(state === newState); // true
 console.log(state); // ["A", "B", "C", "D"]
 ```
 
-Again state and newState
+Again state and newState are the same Object!
 
-Example 5. 
+**Example 5**
 
 ```JavaScript
 var state = ["a", "B", "C"];
@@ -112,14 +112,11 @@ var newState = ["a", "B", "C"];
 console.log(state === newState); // false
 ```
 
-Variables that hold an Object or an Array hold a reference to that 
-Object or Array. In other words the value stored is the address 
-of the Array or Object you assigned to the variable. 
+Variables assigned an Object or an Array hold a *reference* to that 
+Object or Array.
 
-This examples why changing the value of newState in example 2
-changes the value of state. 
-
-The same is true for the Array examples. 
+In example 5 both arrays hold the same value but they are 
+not equal! Each array references a different Array!
 
 In example 5, we can see that creating two different Arrays 
 creates two different references, that are not equivalent, 
