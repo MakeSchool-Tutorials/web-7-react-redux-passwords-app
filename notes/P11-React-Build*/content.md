@@ -15,3 +15,18 @@ content.
 
 React Router manages this navigation and display of components. 
 
+## Security 
+
+It should be noted that while this is loaded from the web the 
+data is stored localy. Passwords stored should be secure as 
+they would be if stored in a text file on your computer. 
+
+That said, localStorage is vulnerable to XSS attacks.
+
+## Build and Deploy 
+
+
+
+## Resources
+
+- https://www.whitehatsec.com/blog/web-storage-security/

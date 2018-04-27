@@ -5,7 +5,7 @@ slug: react-redux-password-strength
 
 # What makes a strong password? 
 
-Good question! Passwords, as a subject, is worthy of an entire class. 
+Good question! Passwords, as a subject, are worthy of an entire class! 
 For our purpose we will just look at a few features in the broad
 topic. 
 
@@ -17,7 +17,7 @@ hackers.
 
 - https://nulab-inc.com/blog/nulab/password-strength/
 
-Or use a library
+Here is a library that rates passwords:
 
 - https://github.com/dropbox/zxcvbn
 
@@ -33,18 +33,19 @@ This library is easy to use just follow these three steps:
 2. Import it into a component: `import zxcvbn from 'zxcvbn'`
 3. Call the method with password you'd like to evaluate: `zxcvbn('p@$$w0rd')`
 
-The `zxcvbn` method returns an object with data that evaluates the 
+The `zxcvbn()` method returns an object with data that evaluates the 
 input password. 
 
-This object has lots of properties. Think of different ways you display
-this information. Log the object to the console and take alook at the 
-properties. 
+This object has lots of properties. Think of different ways to display
+this information. Log the object to the console and take a look at the 
+properties.
 
 `score` and `guesses` would be a good starting point. Score is a value from 
-0 to 4. making this the easiest to work with. 
+0 to 4, making this the easiest to work with. 
 
 crack_times_seconds might also be interesting to show. 
 
+Think of interesting ways you can display some the other proprties. 
 
 ### Stretch Challenges 
 
@@ -53,7 +54,7 @@ crack_times_seconds might also be interesting to show.
 Make a Component dedicated to displaying password strength. 
 Pass the object from zxcvbn to this component, or it might be 
 better still to pass the password in and have this component 
-run generate the evaluation. 
+run the evaluation. 
 
 **Style the evaluation**
 

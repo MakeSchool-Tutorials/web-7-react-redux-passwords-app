@@ -13,7 +13,9 @@ Import redux into your project.
 
 `npm i --save redux;`
 
-This adds Redux as a dependancy to the project. There are a few more things we 
+This adds Redux as a dependancy to the project. 
+
+There are a few more things we 
 to set up before we can implement Redux in React. 
 
 ## Add react-redux 
@@ -21,6 +23,8 @@ to set up before we can implement Redux in React.
 Add react-redux as a dependancy. 
 
 `npm i --save react-redux;`
+
+Imagine this as the glue that binds Redux with React. 
 
 ## Create Actions 
 
@@ -36,8 +40,8 @@ Imagine you want to store and manage passwords in your app.
 The actions need to create new passwords, delete existing 
 passwords, and update existing passwords. 
 
-You will implement the store a following step. When get there 
-the store will be defined as an array and each password will 
+You will implement the store in a following step. The store 
+will be defined as an array and each password will 
 be stored at an index in that array. 
 
 Define these actions in 'src/actions/index.js'
@@ -48,9 +52,10 @@ export const EDIT_PASSWORD = "EDIT_PASSWORD"
 export const DELETE_PASSWORD = "DELETE_PASSWORD"
 ```
 
-These are the action types. 
+These are the action types. You need to export these so these 
+string constants can be shared throughout your code. 
 
-Below this add some action creators. 
+Next add some action creators. 
 
 ```JavaScript
 export const addPassword = (name, password) => {
@@ -76,9 +81,10 @@ export const editPassword = (index, name, password) => {
 ```
 
 These functions are the action creators. These are simple functions 
-that return action objects. Every action object has a type, which 
-is set to an action type, and a payload. Payload is a JS object 
-with any properties. 
+that return action objects. 
+
+Every action object has a type, which is set to an action type, 
+and a payload. Payload is a JS object with any properties.
 
 
 ## Define a Reducer function 
@@ -131,12 +137,12 @@ parameter.
 `const passwordReducer = (state = [], action) => {...`
 
 The switch statement in the function handles each action type. 
-Notice that each case returns state. State is an array and when 
-state is modified rather modifying state each case returns a new 
-copy of the array. 
+Each case returns state. State is an array and when 
+state is modified rather modifying state each case returns a 
+**new copy of the array**. 
 
-This is a requirement for Redux! Any changes to state must produce
-new state! You can not modify existing state. 
+This is a requirement for Redux! **Any changes to state must produce
+new state!** You can not modify existing state. 
 
 ## Combining Reducers 
 
@@ -159,14 +165,14 @@ export default combineReducers({
 This imports the `combineReducers` method from 'react-redux' and the 
 `passwordReducer` from 'src/reducers/password-reducer.js'
 
-You call `combineReducers` the object that represents the store. In this case 
-the store will hold the array of passwords under the key: 'passwords' and handle
-changes to this piece of state with `passwordReducer`. 
+In this case the store will hold the array of passwords under the 
+key: 'passwords' and handle changes to this piece of state 
+with `passwordReducer`. 
 
 ## Provider
 
-Provider is a React Component that provides access to the Redux store to 
-it's child components. Provider is part of React Redux. 
+Provider is a React Component that provides the Redux 
+store to it's child components. Provider is part of react-redux. 
 
 Add this at the top of App.js. 
 
@@ -183,7 +189,7 @@ Now create a store from your reducers:
 
 `const store = createStore(reducers)`
 
-Last, define the Provider for the App. This is a component that 
+Define the Provider for the App. This is a component that 
 should be an ancestor to components that want access to the Store. 
 
 ```JSX
@@ -214,24 +220,19 @@ To create a Container you need to connect a component to Redux via the
 
 ## Connect method 
 
-The connect method connected components to the redux store. To make this work you 
-will use two methods: `mapStateToProps` and `mapDispatchToProps`. 
+The connect method *connects* components to the redux store. To make this 
+work you will use two methods: `mapStateToProps` and `mapDispatchToProps`. 
 
 ### mapStateToProps
 
-The `mapStateToProps` method receives state from the Store as a prop and 
+The `mapStateToProps` method receives state from the Store and 
 returns an object containing values to be passed to your container/component 
 as props. 
 
 ### mapDispatchToProps
 
 The `mapDispatchToProps` method maps the action creator methods you defined 
-to props in your container/component. There is a little functional progrmming 
-magic happening through this method. 
-
-### connect method
-
-The `connect` method connects your component, to state and action creators. 
+to props in your container/component. 
 
 ## Password List 
 
@@ -273,10 +274,10 @@ const mapStateToProps = (state) => {
 export default connect(mapStateToProps)(PasswordList)
 ```
 
-This is the minimal component to display a list of passwords with thier names. 
+This is the minimal needed to display a list of passwords with their names. 
 
 The list of passwords is generated from the array of passwords in the redux store. 
-This is passed through `mapStateToProps` to `this.props.passwords` in this component. 
+This is passed through `mapStateToProps` to `this.props.passwords` the component. 
 The last line `export default connect(mapStateToProps)(PasswordList)` makes this 
 possible. 
 
@@ -325,7 +326,7 @@ export default connect(mapStateToProps, mapDispatchToProps())(Password)
 Last, you want to save a password by calling the action creator: `addPassword`
 with the name and password. 
 
-Add a button that does this to render method: 
+Add a button that does this within the render method: 
 
 ```JSX
 <div>
