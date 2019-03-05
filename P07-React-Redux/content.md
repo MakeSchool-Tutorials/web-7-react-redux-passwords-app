@@ -63,12 +63,22 @@ Import redux into your project.
 
 This adds Redux as a dependancy to the project.
 
+The redux package adds some methods used by redux that set up and manage the store. 
+
+- createStore()
+- combineReducers()
+
 ### Add react-redux 
 
 Add react-redux as a dependancy. This is 'glue' that connects
 Redux with React
 
 `npm i --save react-redux;`
+
+React Redux adds some methods and components that make it easy for Redux and React to work together. 
+
+- Provider
+- connect()
 
 ### Provider
 

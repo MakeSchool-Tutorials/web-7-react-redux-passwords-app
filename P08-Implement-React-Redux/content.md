@@ -234,6 +234,75 @@ as props.
 The `mapDispatchToProps` method maps the action creator methods you defined
 to props in your container/component.
 
+## Add a name field
+
+Currently the Password component generates a password we'd like to be able to add a password to a list of saved passwords. 
+
+Besides adding a password we'd also like to include a name with every password we save. 
+
+Open the Password Component. Edit the constructor to add a new value on state that will hold the name. 
+
+```JavaScript
+constructor(props) {
+  super(props)
+  this.state = { 
+    password: 'p@ssw0rd', 
+    name: 'My Password' 
+  }
+}
+```
+
+Add a new input field to show and edit this value. This should go above the password input in the render method. 
+
+```JavaScript 
+<input
+  value={this.state.name}
+  onChange={(e) => this.setState({ name: e.target.value })}
+/>
+```
+
+## Turning the Password component into a container
+
+Now it's time to connect this component to redux. 
+
+Import connect from react-redux
+
+`import { connect } from 'react-redux'`
+
+We want to add a new password to do this we need to send a message to redux with an action from one of our action creators. Import the action creator at the top. 
+
+`import { addPassword } from './actions/'`
+
+Now it's time to connect this action to the reduc store. At the bottom of the class above the export statement add a method to map this method to the dispatcher: 
+
+```JavaScript
+const mapDispatchToProps = () => {
+  return {
+    addPassword
+  }
+}
+```
+
+Now replace the export statement at the bottom of the page with the following: 
+
+`export default connect(undefined, mapDispatchToProps())(Password)`
+
+The first parameter was not used used, but we needed to set the second parameter. 
+
+Now we can use the addPassword but we will call it from props. Add a save button. Put this in the render method at the bottom. 
+
+```JavaScript
+<div>
+  <button onClick={(e) => {
+      this.props.addPassword(this.state.name, this.state.password)
+    }}>
+    Save
+  </button>
+</div>
+```
+
+Here you are calling addPasswrd from this.props and the name and password from state. 
+
 ## Password List
 
 This a component that will list all of the passwords in the store.
@@ -296,7 +365,7 @@ top of the class.
 
 ```JavaScript
 import { connect } from 'react-redux'
-import { addPassword } from '../actions'
+import { addPassword } from './actions'
 ```
 
 Add `mapStateToProps` and `addDispatchToProps` at the bottom of the module.

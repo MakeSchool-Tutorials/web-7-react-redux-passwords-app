@@ -130,12 +130,12 @@ More accurately [MDN - Math.random()](https://developer.mozilla.org/en-US/docs/W
 
 Let's take this apart. 
 
-**Floating-point** : is a decimal number like: 173.9 or 0.30000000000000004.
+**Floating-point** is a decimal number like: 173.9 or 0.30000000000000004.
 
-**from 0 inclusive up to but not including 1** : says the possible values could range from
+**...from 0 inclusive up to but not including 1...** says the possible values could range from
 0.0 to 0.999999999999... 
 
-**which you can then scale** : To get a usable range of values you will need to multiply
+**...which you can then scale...** To get a usable range of values you will need to multiply
 by a range. For example `Math.random() * 6` would generate numbers from 0.0 to 5.999...
 
 Often you will want a whole number. Since `Math.random()` generates a floating point 
