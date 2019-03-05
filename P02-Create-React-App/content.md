@@ -24,7 +24,7 @@ The last command may take a few seconds to start the app for the first time.
 
 When the app is running it should open in a browser and look like this: 
 
-![screenshot.png](assets/screenshot.png)
+![screenshot-2.png](assets/screenshot-2.png)
 
 The project is now running on `localhost:3000`. This local server is 
 for development. 
