@@ -60,4 +60,3 @@ what is displayed is part of application state for Twitter.
 
 - https://redux.js.org
 - https://egghead.io/courses/getting-started-with-redux
-- https://medium.com/@cabot_solutions/flux-the-react-js-application-architecture-a-comprehensive-study-fd2585d06483
