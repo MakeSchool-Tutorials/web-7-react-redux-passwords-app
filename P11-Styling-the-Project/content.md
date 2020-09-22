@@ -230,12 +230,3 @@ Should work the same as the previous two examples.
 ## Resources 
 
 - 
-
-
-
-
-
-
-
-
-

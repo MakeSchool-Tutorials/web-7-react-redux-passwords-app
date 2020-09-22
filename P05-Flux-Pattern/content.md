@@ -66,8 +66,8 @@ With primitve types this is easily done and can be checked by comparison.
 **Example 1**
 
 ```JavaScript 
-var state = 10;
-var newState = 66;
+const state = 10;
+const newState = 66;
 console.log(state === newState); // false 
 ```
 
@@ -78,8 +78,8 @@ not always obvious.
 **Example 2**
 
 ```JavaScript
-var state = { value: 10 };
-var newState = state;
+const state = { value: 10 };
+const newState = state;
 newState.value = 66;
 console.log(state === newState); // true
 ```
@@ -95,8 +95,8 @@ Arrays and Functions are Objects!
 **Example 3** 
 
 ```JavaScript
-var state = ["A", "B", "C"];
-var newState = state;
+const state = ["A", "B", "C"];
+const newState = state;
 newState.push("D");
 console.log(state === newState); // true
 console.log(state); // ["A", "B", "C", "D"]
@@ -107,8 +107,8 @@ Again state and newState are the same Object!
 **Example 5**
 
 ```JavaScript
-var state = ["a", "B", "C"];
-var newState = ["a", "B", "C"];
+const state = ["a", "B", "C"];
+const newState = ["a", "B", "C"];
 console.log(state === newState); // false
 ```
 

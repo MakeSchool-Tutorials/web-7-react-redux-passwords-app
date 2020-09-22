@@ -49,19 +49,19 @@ Try it out. Add the following to the `Password` Component.
 ```JSX
 <div>
   <input
-    onChange={(e) => {this.setState({ password: e.target.value })}}
-    value={this.state.password}
+    onChange={(e) => setPassword(e.target.value)}}
+    value={password}
   />
 </div>
 ```
 
 This line sets the value of password *on state* when the input element changes. 
 
-`onChange={(e) => {this.setState({ password: e.target.value })}}`
+`onChange={(e) => setPassword(e.target.value)}}`
 
 This line sets the value of the *input* when state changes. 
 
-`value={this.state.password}`
+`value={password}`
 
 This pattern works for most form elements. That inlcudes, checkbox, radio, 
 select, textarea etc. 

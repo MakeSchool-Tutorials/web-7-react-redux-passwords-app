@@ -51,31 +51,26 @@ Create a new file 'src/password.js'.
 Define a new React component in this file. 
 
 ```JavaScript
-import React, { Component } from 'react'
+import React, { useState } from 'react'
 
-class Password extends Component {
-  constructor(props) {
-    super(props)
-    this.state = { password: 'p@ssw0rd' }
-  }
+generatePassword() {
+  // generate a password here
+  console.log("generating password")
+}
 
-  generatePassword() {
-    // generate a password here
-    console.log("generating password")
-  }
-
-  render() {
-    return (
+function Password() {
+  const [password, setPassword] = useState('p@$$w0rd')
+ 
+  return (
+    <div>
+      <div>{password}</div>
       <div>
-        <div>{this.state.password}</div>
-        <div>
-          <button onClick={(e) => {
-            this.generatePassword()
-          }}>Generate</button>
-        </div>
+        <button onClick={(e) => {
+          generatePassword()
+        }}>Generate</button>
       </div>
-    )
-  }
+    </div>
+  )
 }
 
 export default Password
@@ -88,14 +83,12 @@ import React, { Component } from 'react';
 import './App.css';
 import Password from './password';
 
-class App extends Component {
-  render() {
-    return (
-      <div className="App">
-        <Password />
-      </div>
-    );
-  }
+function App() {
+  return (
+    <div className="App">
+      <Password />
+    </div>
+  );
 }
 
 export default App;
@@ -173,7 +166,7 @@ Generate a random die roll: `random(6) + 1; // generates a number be 1 and 6`
 Get a random element from an array: 
 
 ```JavaScript
-var names = ['Ann', 'Bob', 'Cat', 'Dan'];
+const names = ['Ann', 'Bob', 'Cat', 'Dan'];
 names[random(names.length)] // returns a random name e.g. 'Bob'
 ```
 
@@ -187,7 +180,7 @@ choose depends on your use case. I'll leave the final decision to you.
 Create an array of all of the characters and choose a random element from the array. 
 
 ```JavaScript
-var letters = ['a', 'b', 'c', 'd', 'e', 'f', 'g'];
+const letters = ['a', 'b', 'c', 'd', 'e', 'f', 'g'];
 console.log(letters[random(letters.length)]);
 ```
 
@@ -201,7 +194,7 @@ For example you can get the length of a String: `"abcd".length // 4`
 You can access any character at an index: `"abcd"[2] // c`
 
 ```JavaScript
-var str = 'abcdefghijklmnopqrstuvwxyz';
+const str = 'abcdefghijklmnopqrstuvwxyz';
 console.log(str[random(str.length)]); // prints a random lowercase letter
 ```
 
@@ -234,7 +227,7 @@ Use any of the ideas above the method you choose is up to you.
 Your random password should display in the component when you press the "Generate" 
 button. This will happen automatically by calling: 
 
-`this.setState({ password: newPassword })`
+`setPassWord(newPassword)`
 
 Where `newPassword` is the random generated password. 
 

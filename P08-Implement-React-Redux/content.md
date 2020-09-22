@@ -154,7 +154,6 @@ Add the following to 'src/reducers/index.js'
 
 ```JavaScript
 import { combineReducers } from 'redux'
-
 import passwordReducer from './password-reducer'
 
 export default combineReducers({
@@ -193,46 +192,19 @@ Define the Provider for the App. This is a component that
 should be an ancestor to components that want access to the Store.
 
 ```JSX
-class App extends Component {
-  render() {
-    return (
-      <Provider store={store}>
-        <div className="App">
-          <Password />
-        </div>
-      </Provider>
-    );
-  }
+function App() {
+  return (
+    <Provider store={store}>
+      <div className="App">
+        <Password />
+      </div>
+    </Provider>
+  );
 }
 ```
 
 At this stage you are implementing Redux and have defined a store. The
 next step will be to connect components to the store.
-
-## React Containers
-
-Containers are components that are connected to the Redux store. Container
-Components recieve state in the form of props when the store is updated
-and send actions to the dispatcher to trigger changes in state.
-
-To create a Container you need to connect a component to Redux via the
-`connect` method.
-
-## Connect method
-
-The connect method *connects* components to the redux store. To make this
-work you will use two methods: `mapStateToProps` and `mapDispatchToProps`.
-
-### mapStateToProps
-
-The `mapStateToProps` method receives state from the Store and
-returns an object containing values to be passed to your container/component
-as props.
-
-### mapDispatchToProps
-
-The `mapDispatchToProps` method maps the action creator methods you defined
-to props in your container/component.
 
 ## Password List
 
@@ -242,127 +214,84 @@ Create a new component that will display a list of passwords. Create a new
 file: 'src/password-list.js'.
 
 ```JSX
-import React, { Component } from 'react'
+import React, { useSelector, useState } from 'react'
 import { connect } from 'react-redux'
 
-class PasswordList extends Component {
+function PasswordList() {
+  const passwords = useSelector((state) => state.passwords)
 
-  getList() {
-    return this.props.passwords.map((pass, index) => {
-      return (
-        <div key={index}>
-          name:{pass.name} password: {pass.password}
-        </div>)
-    })
-  }
-
-  render() {
+  const passwordList = passwords.map((pass, index) => {
     return (
-      <div>
-        {this.getList()}
-      </div>
-    )
-  }
+      <div key={index}>
+        name:{pass.name} password: {pass.password}
+      </div>)
+  })
+  
+  return (
+    <div>
+      {passwordList}
+    </div>
+  )
 }
 
-const mapStateToProps = (state) => {
-  return {
-    passwords: state.passwords
-  }
-}
-
-export default connect(mapStateToProps)(PasswordList)
+export default PasswordList
 ```
 
-This is the minimal needed to display a list of passwords with their names.
+Here you imported `useSelector` from react-redux. You used this to get the list of passwords from the store with: 
 
-The list of passwords is generated from the array of passwords in the redux store.
-This is passed through `mapStateToProps` to `this.props.passwords` the component.
-The last line `export default connect(mapStateToProps)(PasswordList)` makes this
-possible.
+```JS
+const passwords = useSelector((state) => state.passwords)
+```
 
-Notice, the last line is the default export, instead of exporting the class as
-usual.
-
-At this point there are no passwords in the list, so nothing is displayed. You
-need to add passwords to the list.
+The function passed to `useSelector()` takes state as a parameter and returns a value that you want from state. Here you returned `passwords` from state. 
 
 ## Save a Password
 
 ## Add a name field
 
-Currently the Password component generates a password we'd like to be able to add a password to a list of saved passwords. 
+Currently the Password component generates a password we'd like to be able to add a password to a list of saved passwords.
 
-Besides adding a password we'd also like to include a name with every password we save. 
+Besides adding a password we'd also like to include a name with every password we save.
 
 Open the Password Component. Edit the constructor to add a new value on state that will hold the name. 
 
+Use a hook to keep track the value in the field:
+
 ```JavaScript
-constructor(props) {
-  super(props)
-  this.state = { 
-    password: 'p@ssw0rd', 
-    name: 'My Password' 
-  }
-}
+import React, { useState } from 'react'
+```
+
+Add a new value and setter for the name: 
+
+```JS
+const [name, setName] = useState('')
 ```
 
 Add a new input field to show and edit this value. This should go above the password input in the render method. 
 
 ```JavaScript 
 <input
-  value={this.state.name}
-  onChange={(e) => this.setState({ name: e.target.value })}
+  value={name}
+  onChange={(e) => setName(e.target.value)}
 />
 ```
 
 ## Add password
 
-Modify `src/password.js` Password component. This component was not initially
-set as a container/component. You need to convert this component into a
-container.
-
-Import `connect` from 'react-redux' and `addPassword` from '../actions' at the
-top of the class.
+Use the useDispatch hook. Import it at the top along with the action creator function addPassword. 
 
 ```JavaScript
-import { connect } from 'react-redux'
+import { useDispatch } from 'react-redux'
 import { addPassword } from './actions'
 ```
-
-Add `mapStateToProps` and `addDispatchToProps` at the bottom of the module.
-
-```JavaScript
-const mapStateToProps = (state) => {
-  return {
-
-  }
-}
-
-const mapDispatchToProps = () => {
-  return {
-    addPassword
-  }
-}
-```
-
-Last use `connect` to connect this component to Redux.
-
-Replace `export default Password` with:
-
-```JavaScript
-export default connect(mapStateToProps, mapDispatchToProps())(Password)
-```
-
-Last, you want to save a password by calling the action creator: `addPassword`
-with the name and password.
 
 Add a button that does this within the render method:
 
 ```JSX
 <div>
   <button onClick={(e) => {
-    this.props.addPassword(this.state.name, this.state.password)
+    const dispatch = useDispatch()
+    dispatch(addPassword(name, password))
   }}>Save</button>
 </div>
 ```

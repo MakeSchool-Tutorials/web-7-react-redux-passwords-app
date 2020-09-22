@@ -78,31 +78,14 @@ Redux with React
 React Redux adds some methods and components that make it easy for Redux and React to work together. 
 
 - Provider
-- connect()
-
-### Provider
 
 Provider is a Component that provides access to the Redux store to 
 it's child components. 
 
-### Connect method 
+React Redux also provides some hooks that can be used to send actions and retrieve the store.
 
-The connect method connects components to the store for receiving 
-state change updates through props, and faciltates sending actions 
-to the dispatcher by providing those action creator methods 
-through props. 
-
-### mapStateToProps
-
-The mapStateToProps function does exactly what it's name describes. 
-It maps Application state, from the Redux Store, to props on a component.  
-
-### mapDispatchToProps
-
-The mapDispatchToProps is also aptly named. It maps action creators
-to new functions that send actions to the dispatcher. Like 
-mapStateToProps, mapDispatch to props maps these functions to props
-in a component. 
+- useSelector - connects your components to the store use this to retrieve values fro the store. 
+- useDispatch - returns a reference to the dispatcher. Use this when you need to send and action to update the store. 
 
 ## Resources
 
