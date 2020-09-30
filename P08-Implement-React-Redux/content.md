@@ -214,8 +214,8 @@ Create a new component that will display a list of passwords. Create a new
 file: 'src/password-list.js'.
 
 ```JSX
-import React, { useSelector, useState } from 'react'
-import { connect } from 'react-redux'
+import React, { useState } from 'react'
+import { connect, useSelector } from 'react-redux'
 
 function PasswordList() {
   const passwords = useSelector((state) => state.passwords)
