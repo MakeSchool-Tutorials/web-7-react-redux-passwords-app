@@ -237,6 +237,14 @@ function PasswordList() {
 export default PasswordList
 ```
 
+in your App component, make sure to import the Password List component so we we can see the list of passwords
+```JSX
+import PasswordList from './password-list';
+
+...
+<PasswordList />
+```
+
 Here you imported `useSelector` from react-redux. You used this to get the list of passwords from the store with: 
 
 ```JS
@@ -295,6 +303,7 @@ Add a button that does this within the render method:
   }}>Save</button>
 </div>
 ```
+
 
 ## Testing your work
 
