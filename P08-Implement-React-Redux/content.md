@@ -255,7 +255,7 @@ Currently the Password component generates a password we'd like to be able to ad
 
 Besides adding a password we'd also like to include a name with every password we save.
 
-Open the Password Component. Edit the constructor to add a new value on state that will hold the name. 
+Open the Password Component. Edit the component to add a new value on state that will hold the name. 
 
 Use a hook to keep track the value in the field:
 
