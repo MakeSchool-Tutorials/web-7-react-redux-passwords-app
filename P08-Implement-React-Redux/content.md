@@ -287,12 +287,20 @@ import { useDispatch } from 'react-redux'
 import { addPassword } from './actions'
 ```
 
+Get the dispatcher by adding this at the top of your `Password` component: 
+
+```JS
+function Password() {
+  const dispatch = useDispatch()
+  ...
+}
+```
+
 Add a button that does this within the render method:
 
 ```JSX
 <div>
   <button onClick={(e) => {
-    const dispatch = useDispatch()
     dispatch(addPassword(name, password))
   }}>Save</button>
 </div>
