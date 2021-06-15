@@ -247,7 +247,7 @@ The function passed to `useSelector()` takes state as a parameter and returns a 
 
 ## Save a Password
 
-In this nexct section you will add code that will allow you to create and save new passwords to the list of passwords. 
+In this next section you will add code that will allow you to create and save new passwords to the list of passwords. 
 
 ## Add a name field
 
