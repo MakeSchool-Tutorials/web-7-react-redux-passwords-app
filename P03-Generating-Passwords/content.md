@@ -53,6 +53,8 @@ Define a new React component in this file.
 ```JavaScript
 import React, { useState } from 'react'
 
+<!--  -->add the term "function" before generatePassword becuase we need to define it, that it's a function other wise it will throw out an error 
+
 generatePassword() {
   // generate a password here
   console.log("generating password")
